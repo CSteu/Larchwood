@@ -1,0 +1,257 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace FinalProject
+{
+    public partial class LarchwoodTournament : Form
+    {
+        List<Player> playerlist = new List<Player>();
+        public LarchwoodTournament()
+        {
+            InitializeComponent();
+            defaultPanel.Show();
+            EditPlayer.Hide();
+            BoardPanel.Hide();
+        }
+
+        private void LarchwoodTournament_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NuBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PpBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GenderBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void NumberBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PPDBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void rNameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rGenderBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rNumberBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rPPDBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RSTBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RoundCountBox_TextChanged(object sender, EventArgs e)
+        {
+
+        } 
+        private void RenameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegenderBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RenumberBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RePPDBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchNameBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchButton_Click(object sender, EventArgs e)
+        {
+            if(int.Parse(SearchNameBox.Text) > playerlist.Last().Number || int.Parse(SearchNameBox.Text) < 1)
+            {
+                MessageBox.Show("Number not found");
+                return;
+            }
+            Player searched = playerlist.Where(p => p.Number.ToString() == SearchNameBox.Text).First();
+            SearchNameBox.Clear();
+            RenameBox.Text = searched.Name;
+            RegenderBox.Text = searched.Gender;
+            RenumberBox.Text = searched.Number.ToString();
+            RePPDBox.Text = searched.PPD.ToString();
+        }
+
+        private void UpdateButton_Click(object sender, EventArgs e)
+        {
+            Player updated = playerlist.Where(p => p.Number.ToString() == RenumberBox.Text).First();
+            updated.Name = RenameBox.Text;
+            updated.Gender = RegenderBox.Text;
+            updated.PPD = float.Parse(RePPDBox.Text);
+            RenameBox.Clear();
+            RegenderBox.Clear();
+            RenumberBox.Clear();
+            RePPDBox.Clear();
+            MessageBox.Show("Update Complete");
+            rNameBox.Text = updated.Name;
+            rGenderBox.Text = updated.Gender;
+            rNumberBox.Text = updated.Number.ToString();
+            rPPDBox.Text = updated.PPD.ToString();
+        }
+        private void EditPlayerButton_Click(object sender, EventArgs e)
+        {
+            EditPlayer.Show();
+            BoardPanel.Hide();
+        }
+
+        private void HomeButton_Click(object sender, EventArgs e)
+        {
+            defaultPanel.Show();
+            EditPlayer.Hide();
+            BoardPanel.Hide();
+        }
+        private void APButton_Click(object sender, EventArgs e)
+        {
+            Player tmp = new Player();
+            if (NameBox.Text.Length == 0 || PPDBox.Text.Length == 0)
+            {
+                MessageBox.Show("Needs more input");
+                return;
+            }
+            tmp.Name = NameBox.Text;
+            tmp.Gender = GenderBox.Text;
+            tmp.Number = int.Parse(NumberBox.Text);
+            int tnum = tmp.Number + 1;
+            tmp.PPD = float.Parse(PPDBox.Text);
+            playerlist.Add(tmp);
+            NameBox.Clear();
+            NumberBox.Text = tnum.ToString();
+            PPDBox.Clear();
+            tmp = playerlist.Last();
+            rNameBox.Text = tmp.Name;
+            rGenderBox.Text = tmp.Gender;
+            rNumberBox.Text = tmp.Number.ToString();
+            rPPDBox.Text = tmp.PPD.ToString();
+        }
+        private void startButton_Click(object sender, EventArgs e)
+        {
+            int k;
+            int i = 0;
+            int tnum = int.Parse(NumberBox.Text) - 1;
+            if (tnum % 8 != 0)
+            {
+                tnum = 8 - (tnum % 8);
+                MessageBox.Show("Need " + tnum + " more players");
+            }
+            defaultPanel.Show();
+            EditPlayer.Show();
+            BoardPanel.Show();
+            //Order the players
+            List<Player> tlist = playerlist.OrderBy(p => p.PPD).ToList();
+            List<string> lowname = new List<string>();
+            List<string> highname = new List<string>();
+
+            for (k = 0; k < tnum / 2; k++)
+            {
+                tlist[k].Division = "Low";
+                lowname.Add(tlist[k].Name);
+            }
+            for (k = tnum / 2; k < tnum; k++)
+            {
+                tlist[k].Division = "High";
+                highname.Add(tlist[k].Name);
+            }
+            int bnum = tnum / 8;
+            Board board = new Board();
+            List<Board> boards = new List<Board>();
+            for (k = 0; k < bnum; k++)
+            {
+                board.Player1h = highname[i];
+                board.Player1l = lowname[i];
+                i++;
+                board.Player2h = highname[i];
+                board.Player2l = lowname[i];
+                i++;       
+                board.Player3h = highname[i];
+                board.Player3l = lowname[i];
+                i++;
+                board.Player4h = highname[i];
+                board.Player4l = lowname[i];
+                string paste = board.DrawBoard(k);
+                BoardsBox.Text += paste;
+                boards.Add(board);
+            }
+        }
+        private void BoardPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void defaultPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void EditPlayer_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void BoardsBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
