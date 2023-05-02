@@ -60,6 +60,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.EditPlayerButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
+            this.ShowButton = new System.Windows.Forms.Button();
             this.EditPlayer.SuspendLayout();
             this.BoardPanel.SuspendLayout();
             this.SuspendLayout();
@@ -366,9 +367,9 @@
             // 
             // EditPlayerButton
             // 
-            this.EditPlayerButton.Location = new System.Drawing.Point(1679, 109);
+            this.EditPlayerButton.Location = new System.Drawing.Point(1679, 92);
             this.EditPlayerButton.Name = "EditPlayerButton";
-            this.EditPlayerButton.Size = new System.Drawing.Size(138, 42);
+            this.EditPlayerButton.Size = new System.Drawing.Size(138, 59);
             this.EditPlayerButton.TabIndex = 21;
             this.EditPlayerButton.Text = "EDIT PLAYER";
             this.EditPlayerButton.UseVisualStyleBackColor = true;
@@ -376,9 +377,9 @@
             // 
             // HomeButton
             // 
-            this.HomeButton.Location = new System.Drawing.Point(284, 109);
+            this.HomeButton.Location = new System.Drawing.Point(284, 92);
             this.HomeButton.Name = "HomeButton";
-            this.HomeButton.Size = new System.Drawing.Size(73, 41);
+            this.HomeButton.Size = new System.Drawing.Size(73, 58);
             this.HomeButton.TabIndex = 22;
             this.HomeButton.Text = "HOME";
             this.HomeButton.UseVisualStyleBackColor = true;
@@ -389,6 +390,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1830, 799);
+            this.Controls.Add(this.ShowButton);
             this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.EditPlayerButton);
             this.Controls.Add(this.EditPlayer);
@@ -457,6 +459,7 @@
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Panel BoardPanel;
         private System.Windows.Forms.RichTextBox BoardsBox;
+        private System.Windows.Forms.Button ShowButton;
     }
 }
 

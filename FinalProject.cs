@@ -176,6 +176,7 @@ namespace FinalProject
             tmp.Number = int.Parse(NumberBox.Text);
             int tnum = tmp.Number + 1;
             tmp.PPD = float.Parse(PPDBox.Text);
+            tmp.Points = 0;
             playerlist.Add(tmp);
             NameBox.Clear();
             NumberBox.Text = tnum.ToString();
@@ -188,8 +189,8 @@ namespace FinalProject
         }
         private void startButton_Click(object sender, EventArgs e)
         {
-            int k;
-            int i = 0;
+            BoardsBox.Clear();
+            int k, r, a;
             int tnum = int.Parse(NumberBox.Text) - 1;
             if (tnum % 8 != 0)
             {
@@ -199,41 +200,65 @@ namespace FinalProject
             defaultPanel.Show();
             EditPlayer.Show();
             BoardPanel.Show();
-            //Order the players
-            List<Player> tlist = playerlist.OrderBy(p => p.PPD).ToList();
-            List<string> lowname = new List<string>();
-            List<string> highname = new List<string>();
-
-            for (k = 0; k < tnum / 2; k++)
-            {
-                tlist[k].Division = "Low";
-                lowname.Add(tlist[k].Name);
-            }
-            for (k = tnum / 2; k < tnum; k++)
-            {
-                tlist[k].Division = "High";
-                highname.Add(tlist[k].Name);
-            }
+            Round rounds = new Round();
+            rounds.AmtRound = int.Parse(RoundCountBox.Text);
+            List<Player> tlist = playerlist;
+            Random rand = new Random();
+            //for (k = 0; k < tnum / 2; k++)
+            //{
+            //    tlist[k].Division = "Low";
+            //    lowname.Add(tlist[k].Name);
+            //}
+            //for (k = tnum / 2; k < tnum; k++)
+            //{
+            //    tlist[k].Division = "High";
+            //    highname.Add(tlist[k].Name);
+            //}
             int bnum = tnum / 8;
             Board board = new Board();
             List<Board> boards = new List<Board>();
-            for (k = 0; k < bnum; k++)
+            for (r = 0; r < rounds.AmtRound; r++)
             {
-                board.Player1h = highname[i];
-                board.Player1l = lowname[i];
-                i++;
-                board.Player2h = highname[i];
-                board.Player2l = lowname[i];
-                i++;       
-                board.Player3h = highname[i];
-                board.Player3l = lowname[i];
-                i++;
-                board.Player4h = highname[i];
-                board.Player4l = lowname[i];
-                string paste = board.DrawBoard(k);
-                BoardsBox.Text += paste;
-                boards.Add(board);
+                int ro = r + 1;
+                BoardsBox.Text += "Round " + ro + "\n";
+                for(k = tlist.Count-1; k>=1; k--)
+                {
+                    a = rand.Next(k + 1);
+                    Player tmp = tlist[a];
+                    tlist[a] = tlist[k];
+                    tlist[k] = tmp;
+                }
+                int i = 0;
+                for (k = 0; k < bnum; k++)
+                {
+                    board.Player1h = tlist[i].Name;
+                    i++;
+                    board.Player1l = tlist[i].Name;
+                    i++;
+                    board.Player2h = tlist[i].Name;
+                    i++;
+                    board.Player2l = tlist[i].Name;
+                    i++;
+                    board.Player3h = tlist[i].Name;
+                    i++;
+                    board.Player3l = tlist[i].Name;
+                    i++;
+                    board.Player4h = tlist[i].Name;
+                    i++;
+                    board.Player4l = tlist[i].Name;
+                    i++;
+                    string paste = board.DrawBoard(k);
+                    BoardsBox.Text += paste;
+                    boards.Add(board);
+                }
+                playerlist = rounds.RoundSummary(tlist);
+                tlist = playerlist.OrderByDescending(p => p.Points).ToList();
+                for (k = 0; k < tlist.Count; k++)
+                    BoardsBox.Text += tlist[k].Name + " " + tlist[k].Points.ToString() + "\n";
+                BoardsBox.Text += "\n\n\n";
             }
+            Results results = new Results();
+            results.ShowResults(playerlist);
         }
         private void BoardPanel_Paint(object sender, PaintEventArgs e)
         {

@@ -55,7 +55,8 @@ namespace FinalProject
         }
         public string DrawBoard(int x)
         {
-            string send = "Board " + x + 1 + "\n" + Player1h + "|" + Player1l + "\n"
+            int show = x + 1;
+            string send = "Board " + show + "\n" + Player1h + "|" + Player1l + "\n"
                                                 + Player2h + "|" + Player2l + "\n"
                                                 + Player3h + "|" + Player3l + "\n"
                                                 + Player4h + "|" + Player4l + "\n\n\n";
