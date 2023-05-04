@@ -100,6 +100,7 @@
             this.Name = "PlayerPointInput";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PlayerPointInput";
+            this.Load += new System.EventHandler(this.PlayerPointInput_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

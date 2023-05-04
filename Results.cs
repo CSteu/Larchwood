@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace FinalProject
 {
-    public class Results
+    public class Results : Player
     {
         string first;
         string second;

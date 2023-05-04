@@ -57,5 +57,9 @@ namespace FinalProject
             this.Close();
         }
 
+        private void PlayerPointInput_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

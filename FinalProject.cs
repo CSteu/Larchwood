@@ -204,16 +204,6 @@ namespace FinalProject
             rounds.AmtRound = int.Parse(RoundCountBox.Text);
             List<Player> tlist = playerlist;
             Random rand = new Random();
-            //for (k = 0; k < tnum / 2; k++)
-            //{
-            //    tlist[k].Division = "Low";
-            //    lowname.Add(tlist[k].Name);
-            //}
-            //for (k = tnum / 2; k < tnum; k++)
-            //{
-            //    tlist[k].Division = "High";
-            //    highname.Add(tlist[k].Name);
-            //}
             int bnum = tnum / 8;
             Board board = new Board();
             List<Board> boards = new List<Board>();
