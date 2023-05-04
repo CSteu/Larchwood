@@ -196,6 +196,7 @@ namespace FinalProject
             {
                 tnum = 8 - (tnum % 8);
                 MessageBox.Show("Need " + tnum + " more players");
+                return;
             }
             defaultPanel.Show();
             EditPlayer.Show();
