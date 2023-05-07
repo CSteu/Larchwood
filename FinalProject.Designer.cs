@@ -228,6 +228,7 @@
             this.RoundCountBox.Size = new System.Drawing.Size(118, 44);
             this.RoundCountBox.TabIndex = 17;
             this.RoundCountBox.Text = "1";
+            this.RoundCountBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.RoundCountBox.TextChanged += new System.EventHandler(this.RoundCountBox_TextChanged);
             // 
             // startButton
