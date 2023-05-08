@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO.IsolatedStorage;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace FinalProject
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
 
-            string check = "SELECT activated FROM activationTable WHERE serialKey =@key";
+            string check = "SELECT activated FROM activatedTable WHERE serialKey =@key";
             MySqlCommand cmd = new MySqlCommand(check, connection);
             cmd.Parameters.AddWithValue("@key", key);
             int result = Convert.ToInt32(cmd.ExecuteScalar());
@@ -35,13 +36,24 @@ namespace FinalProject
             if(!isActivated(key))
             {
                 MySqlConnection connection = new MySqlConnection(connectionString);
-                string checkForKey = "SELECT COUNT(*) FROM activationTable WHERE serialKey =@key";
+                connection.Open();
+                string checkForKey = "SELECT COUNT(*) FROM activatedTable WHERE serialKey =@key";
                 MySqlCommand command = new MySqlCommand(checkForKey,connection);
                 command.Parameters.AddWithValue("@key", key);
                 int result = Convert.ToInt32(command.ExecuteScalar());
                 if(result > 0)
                 {
                     updateActivation(key);
+                    using (IsolatedStorageFile isolatedStorageFile = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null))
+                    {
+                        using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream("settings.txt", System.IO.FileMode.CreateNew, isolatedStorageFile))
+                        {
+                            using (System.IO.StreamWriter sw = new System.IO.StreamWriter(isolatedStorageFileStream))
+                            {
+                                sw.WriteLine(key);
+                            }
+                        }
+                    }
                     Activated = true;
                 }
                 else
@@ -49,7 +61,7 @@ namespace FinalProject
                     MessageBox.Show("Your key was incorrect");
                     Activated = false;
                 }
-                connection.Open();
+                
 
                 
 
@@ -66,7 +78,7 @@ namespace FinalProject
             MySqlConnection connection = new MySqlConnection(connectionString);
             connection.Open();
 
-            string updateQuery = "UPDATE activationTable SET activated = 1 WHERE serialKey =@key";
+            string updateQuery = "UPDATE activatedTable SET activated = 1 WHERE serialKey =@key";
             MySqlCommand cmd = new MySqlCommand(updateQuery, connection);
             cmd.Parameters.AddWithValue("@key", key);
             cmd.ExecuteNonQuery();
