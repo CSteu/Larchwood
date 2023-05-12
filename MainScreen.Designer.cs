@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.titleBox = new System.Windows.Forms.TextBox();
             this.APButton = new System.Windows.Forms.Button();
             this.NBox = new System.Windows.Forms.TextBox();
@@ -60,8 +61,9 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.EditPlayerButton = new System.Windows.Forms.Button();
             this.HomeButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtKey = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.EditPlayer.SuspendLayout();
             this.BoardPanel.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +73,7 @@
             this.titleBox.Cursor = System.Windows.Forms.Cursors.No;
             this.titleBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleBox.Location = new System.Drawing.Point(7, 6);
-            this.titleBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.titleBox.Margin = new System.Windows.Forms.Padding(2);
             this.titleBox.Name = "titleBox";
             this.titleBox.ReadOnly = true;
             this.titleBox.Size = new System.Drawing.Size(1207, 44);
@@ -82,7 +84,7 @@
             // APButton
             // 
             this.APButton.Location = new System.Drawing.Point(7, 60);
-            this.APButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.APButton.Margin = new System.Windows.Forms.Padding(2);
             this.APButton.Name = "APButton";
             this.APButton.Size = new System.Drawing.Size(92, 27);
             this.APButton.TabIndex = 1;
@@ -93,7 +95,7 @@
             // NBox
             // 
             this.NBox.Location = new System.Drawing.Point(8, 102);
-            this.NBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NBox.Margin = new System.Windows.Forms.Padding(2);
             this.NBox.Name = "NBox";
             this.NBox.ReadOnly = true;
             this.NBox.Size = new System.Drawing.Size(73, 20);
@@ -105,7 +107,7 @@
             // GBox
             // 
             this.GBox.Location = new System.Drawing.Point(8, 123);
-            this.GBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GBox.Margin = new System.Windows.Forms.Padding(2);
             this.GBox.Name = "GBox";
             this.GBox.ReadOnly = true;
             this.GBox.Size = new System.Drawing.Size(73, 20);
@@ -117,7 +119,7 @@
             // NuBox
             // 
             this.NuBox.Location = new System.Drawing.Point(8, 144);
-            this.NuBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NuBox.Margin = new System.Windows.Forms.Padding(2);
             this.NuBox.Name = "NuBox";
             this.NuBox.ReadOnly = true;
             this.NuBox.Size = new System.Drawing.Size(73, 20);
@@ -129,7 +131,7 @@
             // PpBox
             // 
             this.PpBox.Location = new System.Drawing.Point(8, 164);
-            this.PpBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PpBox.Margin = new System.Windows.Forms.Padding(2);
             this.PpBox.Name = "PpBox";
             this.PpBox.ReadOnly = true;
             this.PpBox.Size = new System.Drawing.Size(73, 20);
@@ -141,7 +143,7 @@
             // NameBox
             // 
             this.NameBox.Location = new System.Drawing.Point(84, 102);
-            this.NameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NameBox.Margin = new System.Windows.Forms.Padding(2);
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(89, 20);
             this.NameBox.TabIndex = 6;
@@ -150,7 +152,7 @@
             // PPDBox
             // 
             this.PPDBox.Location = new System.Drawing.Point(84, 164);
-            this.PPDBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PPDBox.Margin = new System.Windows.Forms.Padding(2);
             this.PPDBox.Name = "PPDBox";
             this.PPDBox.Size = new System.Drawing.Size(89, 20);
             this.PPDBox.TabIndex = 8;
@@ -159,7 +161,7 @@
             // NumberBox
             // 
             this.NumberBox.Location = new System.Drawing.Point(84, 144);
-            this.NumberBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NumberBox.Margin = new System.Windows.Forms.Padding(2);
             this.NumberBox.Name = "NumberBox";
             this.NumberBox.ReadOnly = true;
             this.NumberBox.Size = new System.Drawing.Size(89, 20);
@@ -174,7 +176,7 @@
             "Male",
             "Female"});
             this.GenderBox.Location = new System.Drawing.Point(84, 122);
-            this.GenderBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GenderBox.Margin = new System.Windows.Forms.Padding(2);
             this.GenderBox.Name = "GenderBox";
             this.GenderBox.Size = new System.Drawing.Size(89, 21);
             this.GenderBox.TabIndex = 7;
@@ -183,7 +185,7 @@
             // recentBox
             // 
             this.recentBox.Location = new System.Drawing.Point(7, 192);
-            this.recentBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.recentBox.Margin = new System.Windows.Forms.Padding(2);
             this.recentBox.Name = "recentBox";
             this.recentBox.ReadOnly = true;
             this.recentBox.Size = new System.Drawing.Size(167, 145);
@@ -193,7 +195,7 @@
             // rNameBox
             // 
             this.rNameBox.Location = new System.Drawing.Point(84, 218);
-            this.rNameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rNameBox.Margin = new System.Windows.Forms.Padding(2);
             this.rNameBox.Name = "rNameBox";
             this.rNameBox.Size = new System.Drawing.Size(89, 20);
             this.rNameBox.TabIndex = 12;
@@ -202,7 +204,7 @@
             // rPPDBox
             // 
             this.rPPDBox.Location = new System.Drawing.Point(84, 298);
-            this.rPPDBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rPPDBox.Margin = new System.Windows.Forms.Padding(2);
             this.rPPDBox.Name = "rPPDBox";
             this.rPPDBox.Size = new System.Drawing.Size(89, 20);
             this.rPPDBox.TabIndex = 13;
@@ -211,7 +213,7 @@
             // rNumberBox
             // 
             this.rNumberBox.Location = new System.Drawing.Point(84, 271);
-            this.rNumberBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rNumberBox.Margin = new System.Windows.Forms.Padding(2);
             this.rNumberBox.Name = "rNumberBox";
             this.rNumberBox.Size = new System.Drawing.Size(89, 20);
             this.rNumberBox.TabIndex = 14;
@@ -220,7 +222,7 @@
             // rGenderBox
             // 
             this.rGenderBox.Location = new System.Drawing.Point(84, 244);
-            this.rGenderBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rGenderBox.Margin = new System.Windows.Forms.Padding(2);
             this.rGenderBox.Name = "rGenderBox";
             this.rGenderBox.Size = new System.Drawing.Size(89, 20);
             this.rGenderBox.TabIndex = 15;
@@ -230,7 +232,7 @@
             // 
             this.RSTBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RSTBox.Location = new System.Drawing.Point(9, 345);
-            this.RSTBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RSTBox.Margin = new System.Windows.Forms.Padding(2);
             this.RSTBox.Name = "RSTBox";
             this.RSTBox.ReadOnly = true;
             this.RSTBox.Size = new System.Drawing.Size(164, 160);
@@ -242,7 +244,7 @@
             // 
             this.RoundCountBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RoundCountBox.Location = new System.Drawing.Point(93, 345);
-            this.RoundCountBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RoundCountBox.Margin = new System.Windows.Forms.Padding(2);
             this.RoundCountBox.Name = "RoundCountBox";
             this.RoundCountBox.Size = new System.Drawing.Size(80, 32);
             this.RoundCountBox.TabIndex = 17;
@@ -254,7 +256,7 @@
             // 
             this.startButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startButton.Location = new System.Drawing.Point(17, 387);
-            this.startButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.startButton.Margin = new System.Windows.Forms.Padding(2);
             this.startButton.Name = "startButton";
             this.startButton.Size = new System.Drawing.Size(146, 105);
             this.startButton.TabIndex = 18;
@@ -266,7 +268,7 @@
             // 
             this.defaultPanel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.defaultPanel.Location = new System.Drawing.Point(189, 102);
-            this.defaultPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.defaultPanel.Margin = new System.Windows.Forms.Padding(2);
             this.defaultPanel.Name = "defaultPanel";
             this.defaultPanel.Size = new System.Drawing.Size(1022, 401);
             this.defaultPanel.TabIndex = 19;
@@ -285,7 +287,7 @@
             this.EditPlayer.Controls.Add(this.SearchNameBox);
             this.EditPlayer.Controls.Add(this.richTextBox1);
             this.EditPlayer.Location = new System.Drawing.Point(189, 102);
-            this.EditPlayer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditPlayer.Margin = new System.Windows.Forms.Padding(2);
             this.EditPlayer.Name = "EditPlayer";
             this.EditPlayer.Size = new System.Drawing.Size(1022, 401);
             this.EditPlayer.TabIndex = 20;
@@ -296,7 +298,7 @@
             this.BoardPanel.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.BoardPanel.Controls.Add(this.BoardsBox);
             this.BoardPanel.Location = new System.Drawing.Point(25, 21);
-            this.BoardPanel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BoardPanel.Margin = new System.Windows.Forms.Padding(2);
             this.BoardPanel.Name = "BoardPanel";
             this.BoardPanel.Size = new System.Drawing.Size(849, 342);
             this.BoardPanel.TabIndex = 8;
@@ -305,7 +307,7 @@
             // BoardsBox
             // 
             this.BoardsBox.Location = new System.Drawing.Point(9, 9);
-            this.BoardsBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BoardsBox.Margin = new System.Windows.Forms.Padding(2);
             this.BoardsBox.Name = "BoardsBox";
             this.BoardsBox.Size = new System.Drawing.Size(829, 325);
             this.BoardsBox.TabIndex = 0;
@@ -316,7 +318,7 @@
             // 
             this.UpdateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateButton.Location = new System.Drawing.Point(170, 271);
-            this.UpdateButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UpdateButton.Margin = new System.Windows.Forms.Padding(2);
             this.UpdateButton.Name = "UpdateButton";
             this.UpdateButton.Size = new System.Drawing.Size(271, 41);
             this.UpdateButton.TabIndex = 7;
@@ -327,7 +329,7 @@
             // SearchButton
             // 
             this.SearchButton.Location = new System.Drawing.Point(464, 23);
-            this.SearchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchButton.Margin = new System.Windows.Forms.Padding(2);
             this.SearchButton.Name = "SearchButton";
             this.SearchButton.Size = new System.Drawing.Size(87, 25);
             this.SearchButton.TabIndex = 6;
@@ -339,7 +341,7 @@
             // 
             this.RePPDBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RePPDBox.Location = new System.Drawing.Point(170, 218);
-            this.RePPDBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RePPDBox.Margin = new System.Windows.Forms.Padding(2);
             this.RePPDBox.Name = "RePPDBox";
             this.RePPDBox.Size = new System.Drawing.Size(273, 32);
             this.RePPDBox.TabIndex = 5;
@@ -349,7 +351,7 @@
             // 
             this.RenameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RenameBox.Location = new System.Drawing.Point(170, 62);
-            this.RenameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RenameBox.Margin = new System.Windows.Forms.Padding(2);
             this.RenameBox.Name = "RenameBox";
             this.RenameBox.Size = new System.Drawing.Size(273, 32);
             this.RenameBox.TabIndex = 4;
@@ -359,7 +361,7 @@
             // 
             this.RegenderBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegenderBox.Location = new System.Drawing.Point(170, 116);
-            this.RegenderBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RegenderBox.Margin = new System.Windows.Forms.Padding(2);
             this.RegenderBox.Name = "RegenderBox";
             this.RegenderBox.Size = new System.Drawing.Size(273, 32);
             this.RegenderBox.TabIndex = 3;
@@ -369,7 +371,7 @@
             // 
             this.RenumberBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RenumberBox.Location = new System.Drawing.Point(170, 169);
-            this.RenumberBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RenumberBox.Margin = new System.Windows.Forms.Padding(2);
             this.RenumberBox.Name = "RenumberBox";
             this.RenumberBox.ReadOnly = true;
             this.RenumberBox.Size = new System.Drawing.Size(273, 32);
@@ -380,7 +382,7 @@
             // 
             this.SearchNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SearchNameBox.Location = new System.Drawing.Point(189, 23);
-            this.SearchNameBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SearchNameBox.Margin = new System.Windows.Forms.Padding(2);
             this.SearchNameBox.Name = "SearchNameBox";
             this.SearchNameBox.Size = new System.Drawing.Size(273, 32);
             this.SearchNameBox.TabIndex = 1;
@@ -390,7 +392,7 @@
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.Location = new System.Drawing.Point(25, 21);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(850, 343);
@@ -400,7 +402,7 @@
             // EditPlayerButton
             // 
             this.EditPlayerButton.Location = new System.Drawing.Point(1119, 60);
-            this.EditPlayerButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.EditPlayerButton.Margin = new System.Windows.Forms.Padding(2);
             this.EditPlayerButton.Name = "EditPlayerButton";
             this.EditPlayerButton.Size = new System.Drawing.Size(92, 38);
             this.EditPlayerButton.TabIndex = 21;
@@ -411,7 +413,7 @@
             // HomeButton
             // 
             this.HomeButton.Location = new System.Drawing.Point(189, 60);
-            this.HomeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.HomeButton.Margin = new System.Windows.Forms.Padding(2);
             this.HomeButton.Name = "HomeButton";
             this.HomeButton.Size = new System.Drawing.Size(49, 38);
             this.HomeButton.TabIndex = 22;
@@ -419,32 +421,40 @@
             this.HomeButton.UseVisualStyleBackColor = true;
             this.HomeButton.Click += new System.EventHandler(this.HomeButton_Click);
             // 
-            // button1
+            // timer1
             // 
-            this.button1.Location = new System.Drawing.Point(691, 60);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 38);
-            this.button1.TabIndex = 23;
-            this.button1.Text = "SUBMIT";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // txtKey
+            // label1
             // 
-            this.txtKey.Location = new System.Drawing.Point(541, 70);
-            this.txtKey.Margin = new System.Windows.Forms.Padding(2);
-            this.txtKey.Name = "txtKey";
-            this.txtKey.Size = new System.Drawing.Size(89, 20);
-            this.txtKey.TabIndex = 24;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(1108, 6);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 16);
+            this.label1.TabIndex = 23;
+            this.label1.Text = "Time Remaining";
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.Location = new System.Drawing.Point(1126, 22);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(67, 31);
+            this.lblTime.TabIndex = 24;
+            this.lblTime.Text = "0:00";
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // LarchwoodTournament
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1220, 519);
-            this.Controls.Add(this.txtKey);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblTime);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.HomeButton);
             this.Controls.Add(this.EditPlayerButton);
             this.Controls.Add(this.EditPlayer);
@@ -467,7 +477,7 @@
             this.Controls.Add(this.NBox);
             this.Controls.Add(this.APButton);
             this.Controls.Add(this.titleBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "LarchwoodTournament";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LarchwoodTournament";
@@ -514,8 +524,9 @@
         private System.Windows.Forms.Button UpdateButton;
         private System.Windows.Forms.Panel BoardPanel;
         private System.Windows.Forms.RichTextBox BoardsBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtKey;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTime;
     }
 }
 

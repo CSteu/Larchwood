@@ -20,36 +20,19 @@ namespace FinalProject
 
         private void ActivationForm_Load(object sender, EventArgs e)
         {
-            using (IsolatedStorageFile isolatedStorageFile = IsolatedStorageFile.GetStore(IsolatedStorageScope.User | IsolatedStorageScope.Assembly, null, null))
-            {
-                try
-                {
-                    using (IsolatedStorageFileStream isolatedStorageFileStream = new IsolatedStorageFileStream("settings.txt", System.IO.FileMode.Open, isolatedStorageFile))
-                    {
-                        using (System.IO.StreamReader sr = new System.IO.StreamReader(isolatedStorageFileStream))
-                        {
-                            var activated = activation.isActivated(sr.ReadLine());
-                            if (!activated)
-                            {
-                                MessageBox.Show("not activated");
-                                //goto activation form
-                            }
-                            else
-                            {
-                                MessageBox.Show("activated");
-                                //goto main program
-                            }
-                        }
-                    }
-                }
-                catch { }
-            }
+          
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             activation act = new activation();
             act.activateSoftware(txtKey.Text);
+            if(act.Activated == true)
+            {
+                LarchwoodTournament form = new LarchwoodTournament(txtKey.Text);
+                form.Show();
+                this.Hide();
+            }
         }
     }
 }

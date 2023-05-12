@@ -58,11 +58,11 @@
       <DependentUpon>ActivationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Board.cs" />
-    <Compile Include="FinalProject.cs">
+    <Compile Include="MainScreen.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FinalProject.Designer.cs">
-      <DependentUpon>FinalProject.cs</DependentUpon>
+    <Compile Include="MainScreen.Designer.cs">
+      <DependentUpon>MainScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="PlayerPointInput.cs">
@@ -78,8 +78,8 @@
     <EmbeddedResource Include="ActivationForm.resx">
       <DependentUpon>ActivationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FinalProject.resx">
-      <DependentUpon>FinalProject.cs</DependentUpon>
+    <EmbeddedResource Include="MainScreen.resx">
+      <DependentUpon>MainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PlayerPointInput.resx">
       <DependentUpon>PlayerPointInput.cs</DependentUpon>

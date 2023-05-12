@@ -15,12 +15,14 @@ namespace FinalProject
     public partial class LarchwoodTournament : Form
     {
         List<Player> playerlist = new List<Player>();
-        public LarchwoodTournament()
+        private string key;
+        public LarchwoodTournament(string key)
         {
             InitializeComponent();
             defaultPanel.Show();
             EditPlayer.Hide();
             BoardPanel.Hide();
+            this.key = key;
         }
 
         private void LarchwoodTournament_Load(object sender, EventArgs e)
@@ -271,9 +273,20 @@ namespace FinalProject
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e)
         {
-            
+            activation act = new activation();
+            int timeleft = act.timeLeft(key);
+            TimeSpan result = TimeSpan.FromMinutes(timeleft);
+            string fromTimeString = result.ToString("hh':'mm");
+            lblTime.Text = fromTimeString;
+            if (act.isTimeUp(key))
+            {
+                timer1.Enabled = false;
+                MessageBox.Show("Time is up");
+            }
         }
+
+     
     }
 }
